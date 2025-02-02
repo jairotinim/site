@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Controle</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        button { font-size: 20px; padding: 10px 20px; cursor: pointer; background: red; color: white; border: none; border-radius: 5px; }
+        button:hover { background: darkred; }
+    </style>
+</head>
+<body>
+    <h2>🔴 Painel de Controle</h2>
+    <button onclick="dispararAlarme()">Ativar Alerta</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        function dispararAlarme() {
+            socket.emit("ativar_alarme"); // Envia comando para todos os conectados
+        }
+    </script>
+</body>
+</html>
