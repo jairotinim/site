@@ -9,7 +9,7 @@ const io = socketIo(server);
 // Servir arquivos estáticos da pasta "public"
 app.use(express.static("public"));
 
-// Lista de conexões ativas
+// Quando um usuário acessa o site, ele se conecta ao WebSocket
 io.on("connection", (socket) => {
     console.log("Novo dispositivo conectado: " + socket.id);
 
