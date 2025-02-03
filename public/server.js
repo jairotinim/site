@@ -1,25 +1,32 @@
 const express = require("express");
 const http = require("http");
-const socketIo = require("socket.io");
+const { Server } = require("socket.io");
 
 const app = express();
 const server = http.createServer(app);
-const io = socketIo(server);
+const io = new Server(server, {
+    cors: {
+        origin: "*",
+    }
+});
 
-// Servir arquivos estáticos da pasta "public"
-app.use(express.static("public"));
+app.use(express.static("public")); // Servir os arquivos do site
 
-// Quando um usuário acessa o site, ele se conecta ao WebSocket
+// WebSocket: Conectar usuários e enviar alertas
 io.on("connection", (socket) => {
     console.log("Novo dispositivo conectado: " + socket.id);
 
-    // Quando o admin envia o comando
     socket.on("ativar_alarme", () => {
-        io.emit("disparar_alarme"); // Envia para todos os conectados
+        io.emit("disparar_alarme"); // Envia comando para todos os conectados
+    });
+
+    socket.on("disconnect", () => {
+        console.log("Usuário desconectado: " + socket.id);
     });
 });
 
-// Inicia o servidor na porta 3000
-server.listen(3000, () => {
-    console.log("Servidor rodando na porta 3000");
+// Iniciar servidor na porta 3000
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
 });
