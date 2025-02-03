@@ -22,122 +22,41 @@
 
     <!-- Conteúdos -->
     <main>
-        <!-- Seção Vazamento de Dados -->
         <section id="dados" class="content-section active-section">
             <h2 class="section-title"><i class="fas fa-shield-alt"></i> Proteção de Dados</h2>
-            <div class="cards-container">
-                <div class="info-card danger">
-                    <h3><i class="fas fa-mobile-alt"></i> Celular</h3>
-                    <ul>
-                        <li><strong>Bloqueio IMEI:</strong> Use *#06# para ver o número e ligue para a operadora se o celular for roubado.</li>
-                        <li><strong>Golpe do Falso Neto:</strong> Desconfie de mensagens como "Vovô, preciso de dinheiro urgente!".</li>
-                        <li><strong>Apps Falsos:</strong> Baixe só da Play Store ou App Store. Exemplo: App do Banco só pelo site oficial.</li>
-                    </ul>
-                </div>
-                
-                <div class="info-card warning">
-                    <h3><i class="fab fa-whatsapp"></i> Redes Sociais</h3>
-                    <ul>
-                        <li><strong>Verificação em Duas Etapas:</strong> Ative no WhatsApp (Ajustes > Conta > Verificação em duas etapas).</li>
-                        <li><strong>Perfis Falsos:</strong> Desconfie de desconhecidos pedindo dinheiro ou dados.</li>
-                        <li><strong>Privacidade:</strong> Não compartilhe fotos de documentos online.</li>
-                    </ul>
-                </div>
-            </div>
+            <p>Aprenda a proteger suas informações contra vazamentos e golpes.</p>
         </section>
 
-        <!-- Seção Phishing -->
         <section id="phishing" class="content-section">
             <h2 class="section-title"><i class="fas fa-exclamation-triangle"></i> Identificando Phishing</h2>
-            <div class="cards-container">
-                <div class="info-card danger">
-                    <h3><i class="fas fa-envelope"></i> E-mails Falsos</h3>
-                    <ul>
-                        <li><strong>Exemplo Comum:</strong> "Sua conta de luz será cortada! Clique aqui para pagar."</li>
-                        <li><strong>Domínio Suspeito:</strong> Desconfie de emails como "suporte@banco-falso.com".</li>
-                        <li><strong>Solução:</strong> Ligar diretamente para a empresa para confirmar.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card warning">
-                    <h3><i class="fas fa-phone"></i> Golpes por Telefone</h3>
-                    <ul>
-                        <li><strong>Falso Suporte Técnico:</strong> "Seu computador está infectado! Pague para consertar."</li>
-                        <li><strong>Dica:</strong> Nunca passe dados por telefone. Desligue e verifique com um familiar.</li>
-                    </ul>
-                </div>
-            </div>
+            <p>Saiba como evitar armadilhas virtuais e não cair em fraudes.</p>
         </section>
 
-        <!-- Seção Senhas -->
         <section id="senhas" class="content-section">
             <h2 class="section-title"><i class="fas fa-lock"></i> Senhas Seguras</h2>
-            <div class="cards-container">
-                <div class="info-card">
-                    <h3><i class="fas fa-check-circle"></i> Boas Práticas</h3>
-                    <ul>
-                        <li><strong>Use Frases:</strong> "MinhaNetaLúciaNasceuEm2002!"</li>
-                        <li><strong>Senhas Diferentes:</strong> Não use a mesma senha no banco e redes sociais.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card danger">
-                    <h3><i class="fas fa-times-circle"></i> O Que Evitar</h3>
-                    <ul>
-                        <li><strong>Datas Óbvias:</strong> Evite "01011950" (nascimento).</li>
-                        <li><strong>Sequências Simples:</strong> Como "123456" ou "senha123".</li>
-                    </ul>
-                </div>
-            </div>
+            <p>Dicas para criar senhas fortes e seguras.</p>
         </section>
 
-        <!-- Seção Transações -->
         <section id="transacoes" class="content-section">
             <h2 class="section-title"><i class="fas fa-credit-card"></i> Transações Seguras</h2>
-            <div class="cards-container">
-                <div class="info-card warning">
-                    <h3><i class="fas fa-shopping-cart"></i> Compras Online</h3>
-                    <ul>
-                        <li><strong>Sites Confiáveis:</strong> Mercado Livre, Amazon, Lojas Americanas.</li>
-                        <li><strong>Verifique o HTTPS:</strong> O cadeado verde na barra de endereços.</li>
-                    </ul>
-                </div>
-
-                <div class="info-card danger">
-                    <h3><i class="fas fa-hand-holding-usd"></i> Golpes Financeiros</h3>
-                    <ul>
-                        <li><strong>PIX Fraude:</strong> Confirme a identidade antes de enviar dinheiro.</li>
-                        <li><strong>Investimentos Mágicos:</strong> Desconfie de "ganhe 50% ao mês sem risco".</li>
-                    </ul>
-                </div>
-            </div>
+            <p>Evite fraudes em compras online e transações financeiras.</p>
         </section>
 
-        <!-- Seção Teste (Quiz Completo) -->
         <section id="teste" class="content-section">
-            <div class="quiz-container">
-                <h2 class="section-title"><i class="fas fa-question"></i> Teste Seus Conhecimentos</h2>
-                <div id="quiz-content"></div>
-            </div>
+            <h2 class="section-title"><i class="fas fa-question"></i> Teste Seus Conhecimentos</h2>
+            <div id="quiz-content"></div>
         </section>
     </main>
 
+    <!-- Botão Secreto para Ativar Alerta -->
+    <button id="alert-button" style="position:fixed;bottom:10px;right:10px;display:none;">
+        🚨 Disparar Alerta 🚨
+    </button>
+
     <!-- Rodapé -->
     <footer>
-        <p>🆘 Precisa de ajuda? Ligue para o <strong>Disque Denúncia: 181</strong></p>
         <p>&copy; 2024 SafeWeb. Projeto de Extensão Universitária.</p>
     </footer>
-
-    <!-- Botão "Voltar ao Topo" -->
-    <button id="back-to-top" title="Voltar ao topo">↑</button>
-
-    <!-- Modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <p id="modal-text">Conteúdo informativo aqui...</p>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

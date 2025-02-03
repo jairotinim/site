@@ -1,32 +1,37 @@
+const WebSocket = require("ws");
 const express = require("express");
-const http = require("http");
-const { Server } = require("socket.io");
 
+// Criando o servidor WebSocket
+const server = new WebSocket.Server({ port: 8080 });
+
+let clients = [];
+
+server.on("connection", (ws) => {
+    clients.push(ws);
+    console.log("Novo usuário conectado!");
+
+    ws.on("close", () => {
+        clients = clients.filter(client => client !== ws);
+        console.log("Usuário desconectado.");
+    });
+});
+
+// Função para ativar o som remotamente
+function ativarSom() {
+    clients.forEach(client => {
+        if (client.readyState === WebSocket.OPEN) {
+            client.send("tocar");
+        }
+    });
+    console.log("Comando enviado para todos os dispositivos!");
+}
+
+// Criando o servidor HTTP para ativar o som remotamente
 const app = express();
-const server = http.createServer(app);
-const io = new Server(server, {
-    cors: {
-        origin: "*",
-    }
+
+app.get("/ativarSom", (req, res) => {
+    ativarSom();
+    res.send("🔊 Alerta enviado!");
 });
 
-app.use(express.static("public")); // Servir os arquivos do site
-
-// WebSocket: Conectar usuários e enviar alertas
-io.on("connection", (socket) => {
-    console.log("Novo dispositivo conectado: " + socket.id);
-
-    socket.on("ativar_alarme", () => {
-        io.emit("disparar_alarme"); // Envia comando para todos os conectados
-    });
-
-    socket.on("disconnect", () => {
-        console.log("Usuário desconectado: " + socket.id);
-    });
-});
-
-// Iniciar servidor na porta 3000
-const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+app.listen(3000, () => console.log("🔌 Servidor rodando na porta 3000"));
